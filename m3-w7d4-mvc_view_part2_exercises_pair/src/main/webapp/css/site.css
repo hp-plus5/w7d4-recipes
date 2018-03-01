@@ -45,6 +45,51 @@ nav li a:hover {
 	text-decoration: underline;
 }
 
+table img {
+	width: 50%;
+}
+
+div#img img{
+	height: 100%;
+	width: 100%;
+	border-top-left-radius: 5%;
+	border-top-right-radius: 5%;
+}
+
+div.greaterDiv {
+	display: flex;
+	margin: 15px;
+	width: 29%;
+	background-color: #ecf6d9;
+	display: inline-block;
+	border-radius: 5%;
+}
+
+div div#name {
+	text-align: left;
+	font-size: 1.2em;
+	height: 35px;
+	padding: 5px;
+}
+
+div.starImage img{
+	display: inline;
+	float: left;
+	padding: 10px;
+	width: 25%;
+	height: 20%;
+}
+
+div#stars {
+	display: inline;
+	padding: 20px;
+}
+div.starText {
+	display: inline;
+	float: right;
+	padding: 10px;
+}
+
 section {
 	clear: both;
 	display: block;
