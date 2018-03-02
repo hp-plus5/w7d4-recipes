@@ -1,46 +1,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<!DOCTYPE html>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Recipe List View</title>
-    <c:url var="stylesheetUrl" value="/css/site.css" />
-    <link rel="stylesheet" href="${stylesheetUrl}" />
-</head>
-<body>
-    <header>
-        <h1>MVC Exercises - Views Part 2: Models</h1>        
-    </header>
-    <nav>
-        <ul>
-            <c:url var="recipeTilesUrl" value="/recipeTiles" />
-            <li><a href="${recipeTilesUrl}">Tile Layout</a></li>
-            <c:url var="recipeTableUrl" value="/recipeTable" />
-            <li><a href="${recipeTableUrl}">Table Layout</a></li>
-        </ul>
-        
-    </nav>
-    <section id="main-content">
-
-       <!-- Use the request attribute "recipes" (List<Recipe>) -->
-    <h2 style="font-align: center;"> Recipes </h2>   
-	
+<c:set var="pageTitle" value="Recipe Tile View" />
+<%@ include file="common/header.jspf" %>
 
 			<c:forEach var="recipe" items="${recipes}">
 			<div class="greaterDiv">
 			<div id="img">
 			
 			<c:url value="/img/recipe${recipe.recipeId}.jpg" var="imageUrl" />
-			<img src="${imageUrl}" alt="food image" />
+			<c:url var="detailUrl" value="/recipeDetail">
+				<c:param name="recipeId" value="${recipe.recipeId}"/>
+			</c:url>
+			<a href="${detailUrl}"><img src="${imageUrl}" alt="food image" /></a>
 
 			</div>
-			
 			<div id="name">
-			
-			<c:out value="${recipe.name}"/>
+			<c:url var="detailUrl" value="/recipeDetail">
+				<c:param name="recipeId" value="${recipe.recipeId}"/>
+			</c:url>
+			<a href="${detailUrl}"><c:out value="${recipe.name}"/></a>
+
 			
 			</div>
 			
@@ -55,12 +33,7 @@
 			</div>
 			
 			</div>
-			
 			</div>
 			</c:forEach>
 			
-
-	
-    </section>
-</body>
-</html>
+<%@ include file="common/footer.jspf" %>

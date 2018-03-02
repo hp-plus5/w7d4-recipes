@@ -26,11 +26,11 @@ public class RecipeController {
 		return "recipeTable";
 	}
 	
-	@RequestMapping(path="/recipeDetails")
-	public String displayRecipeDetails(ModelMap modelHolder, @RequestParam Long recipeId, HttpServletResponse response) throws IOException {
+	@RequestMapping(path="/recipeDetail")
+	public String displayRecipeDetail(ModelMap modelHolder, @RequestParam Long recipeId, HttpServletResponse response) throws IOException {
 		try {
 			modelHolder.put("recipe", getRecipeById(recipeId));
-			return "recipeDetails";
+			return "recipeDetail";
 		} catch (NumberFormatException | IndexOutOfBoundsException e) {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return null;

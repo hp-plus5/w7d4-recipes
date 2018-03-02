@@ -31,50 +31,53 @@
 
 	<tr>
 	<td></td>
-			<c:forEach var="recipe" items="${recipes}">
+		<c:forEach var="recipe" items="${recipes}">
 			<c:url value="/img/recipe${recipe.recipeId}.jpg" var="imageUrl" />
-				<td>	<img src="${imageUrl}" alt="food image" /></td>		<!-- We'll need to find a way to call on the image for each recipe here as an additional row. -->
-			</c:forEach>
-			</tr>
+			<c:url var="detailUrl" value="/recipeDetail">
+				<c:param name="recipeId" value="${recipe.recipeId}"/>
+			</c:url>
+			<td>	<a href="${detailUrl}"><img src="${imageUrl}" alt="food image" /></a></td>		
+		</c:forEach>
+	</tr>
 			
 	<tr>
 	<td>Name</td>
-			<c:forEach var="recipe" items="${recipes}">
-			<td bgcolor="#cccccc"><c:out value="${recipe.name}"/></td>
-			</c:forEach>
+		<c:forEach var="recipe" items="${recipes}">
+			<td bgcolor="#cccccc"><a href="${detailUrl}"><c:out value="${recipe.name}"/></a></td>
+		</c:forEach>
 	</tr>
 				
 	<tr>
 	<td>Type</td>
-			<c:forEach var="recipe" items="${recipes}">
+		<c:forEach var="recipe" items="${recipes}">
 			<td><c:out value="${recipe.recipeType}"/></td>
-			</c:forEach>
+		</c:forEach>
 	</tr>
+	
 	<tr>
-	<td >Cook Time</td>
-			<c:forEach var="recipe" items="${recipes}">
+	<td>Cook Time</td>
+		<c:forEach var="recipe" items="${recipes}">
 			<td bgcolor="#cccccc"><c:out value="${recipe.cookTimeInMinutes} min"/></td>
-			</c:forEach>
+		</c:forEach>
 	</tr>
 	
 	<tr>
 		<td >Ingredients</td>
-			<c:forEach var="recipe" items="${recipes}">
+		<c:forEach var="recipe" items="${recipes}">
 			<td ><c:out value="${recipe.ingredients.size()} ingredients"/></td>
-			</c:forEach>
+		</c:forEach>
 	</tr>
 	
 	<tr>
 	<td>Rating</td>
-			<c:forEach var="recipe" items="${recipes}">
+		<c:forEach var="recipe" items="${recipes}">
 			<fmt:formatNumber  var="ratingNum" value="${recipe.averageRating}" maxFractionDigits="0" />
 			<c:url value="/img/${ratingNum}-star.png" var="starImg"/>
-				<td bgcolor="#cccccc"><img src="${starImg}" alt="star image" /></td>		<!-- We'll need to find a way to call on the image for each recipe here as an additional row. -->
-			</c:forEach>
-			</tr>	
-
+			<td bgcolor="#cccccc"><img src="${starImg}" alt="star image" /></td>
+		</c:forEach>
+	</tr>	
 
 	</table>
-    </section>
+   </section>
 </body>
 </html>

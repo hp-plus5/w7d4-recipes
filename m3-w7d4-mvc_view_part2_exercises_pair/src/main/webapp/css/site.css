@@ -1,3 +1,5 @@
+
+
 body {
 	width: 100%;
 	background-color: #212121;
@@ -72,6 +74,19 @@ div div#name {
 	padding: 5px;
 }
 
+div div#name a:link {
+	color: #434343;
+}
+
+table a:hover {
+	color: black;
+}
+
+div#stars {
+	display: inline;
+	padding: 20px;
+}
+
 div.starImage img{
 	display: inline;
 	float: left;
@@ -80,15 +95,79 @@ div.starImage img{
 	height: 20%;
 }
 
-div#stars {
-	display: inline;
-	padding: 20px;
-}
 div.starText {
 	display: inline;
 	float: right;
 	padding: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+div.bigDiv {
+	font-size: 1.2em;
+	font-family: 'Montserrat', sans-serif;
+}
+
+div.bestDiv {
+	display: inline-block;
+}
+
+div.bestDiv #imgDiv {
+	display: inline-block;
+	float: left;
+	padding: 10px;
+	width: 30%;
+	height: 20%;
+}
+
+div.bestDiv #imgDiv img {
+	width: 100%;
+	height: 100%;
+}
+
+div.bestDiv #textDiv {
+	display: inline-block;
+	float: left;
+	width: 60%;
+	text-align: left;
+	padding: 10px;
+}
+
+div.bottomDiv {
+	display: block;
+	padding: 20px;
+	align-content: bottom;
+}
+
+div.bottomDiv #ingredients {
+	display: inline-block;
+	text-align: left;
+	display: block;
+	border-bottom: solid 2px;
+}
+
+div.bottomDiv #preparation {
+	display: inline-block;
+	display: block;
+	text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
 
 section {
 	clear: both;
